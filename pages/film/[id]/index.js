@@ -12,15 +12,15 @@ const Film = ({ filmInfo, characterNames, planetNames, speciesNames, vehicleName
             <h3>Producers: {filmInfo.producer} </h3>
             <h3>Release Date: {filmInfo.release_date} </h3>
             <h3>Characters</h3>
-            <InfoList allItemNames={characterNames} filmItemUrls={filmInfo.characters} />
+            <InfoList allItemNames={characterNames} filmItemUrls={filmInfo.characters} itemType={'character'} />
             <h3>Planets</h3>
-            <InfoList allItemNames={planetNames} filmItemUrls={filmInfo.planets} />
+            <InfoList allItemNames={planetNames} filmItemUrls={filmInfo.planets} itemType={'planet'} />
             <h3>Species</h3>
-            <InfoList allItemNames={speciesNames} filmItemUrls={filmInfo.species} />
+            <InfoList allItemNames={speciesNames} filmItemUrls={filmInfo.species} itemType={'species'} />
             <h3>Vehicles</h3>
-            <InfoList allItemNames={vehicleNames} filmItemUrls={filmInfo.vehicles} />
+            <InfoList allItemNames={vehicleNames} filmItemUrls={filmInfo.vehicles} itemType={'vehicle'} />
             <h3>Starships</h3>
-            <InfoList allItemNames={starshipNames} filmItemUrls={filmInfo.starships} />
+            <InfoList allItemNames={starshipNames} filmItemUrls={filmInfo.starships} itemType={'starship'} />
             <p>Opening Crawl: {filmInfo.opening_crawl} </p>
         </main>
     )

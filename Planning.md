@@ -26,7 +26,8 @@
 6. Films can be favourited, this state should be persisted using local storage ✅
 7. Favourited films can be unfavourited ✅
 8. Favourited films should appear at the top of the list ✅
-9. The list of characters should display a tooltip when a list item is hovered, containing their name, birth year, eye colour, gender, hair colour and any other information you deem necessary
+9. The list of characters should display a tooltip when a list item is hovered, containing their name, birth year, eye colour, gender, hair colour and any other information you deem necessary ✅
 10. List should be searchable ✅
 11. Styling
 12. Sort again on refresh
+13. Links go to the wrong page

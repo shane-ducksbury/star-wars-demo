@@ -1,0 +1,18 @@
+.tooltip {
+    background-color: #474646;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 10px;
+    padding: 0.6rem;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    box-sizing: border-box;
+}

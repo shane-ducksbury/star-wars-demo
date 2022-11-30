@@ -1,16 +1,18 @@
-const InfoList = ({ allItemNames, filmItemUrls }) => {
-    const getCharacterShortInfoFromURL = (characterURL) => {
+import ItemCard from "./ItemCard"
+import styles from "../styles/InfoList.module.scss"
+
+const InfoList = ({ allItemNames, filmItemUrls, itemType }) => {
+    const getItemShortInfoFromURL = (characterURL) => {
         return allItemNames.find(element => element.url === characterURL)
     }
     
     return (
         <>
-        <ul>
-            {filmItemUrls.map(itemUrl => 
-            {
-                return(<li key={getCharacterShortInfoFromURL(itemUrl).uid}>{getCharacterShortInfoFromURL(itemUrl).name
-            }
-            </li>)})}
+        <ul className={styles.itemList}>
+            {filmItemUrls.map(itemUrl => {
+                const item = getItemShortInfoFromURL(itemUrl)
+                return(<ItemCard key={item.uid} itemShortInfo={item} itemType={itemType} />)
+            })}
         </ul>
         </>
     )
