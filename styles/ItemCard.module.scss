@@ -8,15 +8,15 @@
     text-align: center;
     border-radius: 6px;
     cursor: pointer;
-}
+    
+    & div{
+        place-self: center;
+    }
 
-.card > div {
-    place-self: center;
-}
-
-.card > h4 {
-    place-self: center;
-    margin: 0;
+    & h4 {
+        place-self: center;
+        margin: 0;
+    }
 }
 
 .itemAvatar {

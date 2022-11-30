@@ -1,5 +1,6 @@
-import FilmListItem from "./FilmListItem"
-import { useEffect, useState } from "react"
+import FilmListItem from './FilmListItem'
+import { useEffect, useState } from 'react'
+import styles from '../styles/FilmList.module.scss'
 
 const FilmList = ({ allFilms }) => {
     const [favourites, setFavourites] = useState([])
@@ -7,12 +8,16 @@ const FilmList = ({ allFilms }) => {
     const [searchTerm, setSearchTerm] = useState()
     const [localStorageChecked, setLocalStorageChecked] = useState(false)
 
+    const pushFilmToTopOfList = (id) => {
+        const filmIndex = allFilms.findIndex(film => film.properties.episode_id === id)
+        allFilms.unshift(allFilms.splice(filmIndex, 1)[0])
+    }
+
     const addFilmToFavourites = (id) => {
         if(favourites.includes(id)) return
 
         setFavourites([...favourites, id])
-        const filmIndex = allFilms.findIndex(film => film.properties.episode_id === id)
-        allFilms.unshift(allFilms.splice(filmIndex, 1)[0])
+        pushFilmToTopOfList(id)
     }
 
     const removeFilmFromFavourites = (id) => {
@@ -30,7 +35,13 @@ const FilmList = ({ allFilms }) => {
 
     useEffect(() => {
         const faveMovies = localStorage.getItem('favouriteFilms')
-        if(faveMovies) setFavourites(JSON.parse(faveMovies))
+        if(faveMovies) {
+            const foundFaves = JSON.parse(faveMovies)
+            setFavourites(foundFaves)
+            foundFaves.forEach(fave => {
+                pushFilmToTopOfList(fave)
+            })
+        } 
         setLocalStorageChecked(true)
     },[])
     
@@ -43,11 +54,12 @@ const FilmList = ({ allFilms }) => {
     return (
         <>
             <input onChange={e => filterFilmList(e.target.value.toLowerCase())}></input>
-            <ul>
+            <ul className={styles.filmList}>
                 {filmList.map(film => 
                 <FilmListItem
                     key={film._id}
                     film={film}
+                    filmIsFavourite={favourites.includes(film.properties.episode_id)}
                     addFilmToFavourites={addFilmToFavourites}
                     removeFilmFromFavourites={removeFilmFromFavourites}
                 />)}

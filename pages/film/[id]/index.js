@@ -1,4 +1,5 @@
 import Link from "next/link"
+import FilmPrimaryInfo from "../../../components/FilmPrimaryInfo"
 import InfoList from "../../../components/InfoList"
 
 const Film = ({ filmInfo, characterNames, planetNames, speciesNames, vehicleNames, starshipNames }) => {
@@ -6,19 +7,20 @@ const Film = ({ filmInfo, characterNames, planetNames, speciesNames, vehicleName
     return (
         <main>
             <Link href='/'>Back</Link>
-            <h1>{filmInfo.title}</h1>
-            <h2>Episode {filmInfo.episode_id}</h2>
-            <h3>Director: {filmInfo.director} </h3>
-            <h3>Producers: {filmInfo.producer} </h3>
-            <h3>Release Date: {filmInfo.release_date} </h3>
+            <FilmPrimaryInfo filmInfo={filmInfo} />
+            <hr />
             <h3>Characters</h3>
             <InfoList allItemNames={characterNames} filmItemUrls={filmInfo.characters} itemType={'character'} />
+            <hr />
             <h3>Planets</h3>
             <InfoList allItemNames={planetNames} filmItemUrls={filmInfo.planets} itemType={'planet'} />
+            <hr />
             <h3>Species</h3>
             <InfoList allItemNames={speciesNames} filmItemUrls={filmInfo.species} itemType={'species'} />
+            <hr />
             <h3>Vehicles</h3>
             <InfoList allItemNames={vehicleNames} filmItemUrls={filmInfo.vehicles} itemType={'vehicle'} />
+            <hr />
             <h3>Starships</h3>
             <InfoList allItemNames={starshipNames} filmItemUrls={filmInfo.starships} itemType={'starship'} />
             <p>Opening Crawl: {filmInfo.opening_crawl} </p>
