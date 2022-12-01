@@ -53,7 +53,11 @@ const FilmList = ({ allFilms }) => {
 
     return (
         <>
-            <input onChange={e => filterFilmList(e.target.value.toLowerCase())}></input>
+            <input 
+                className={styles.searchBar} 
+                onChange={e => filterFilmList(e.target.value.toLowerCase())}
+                placeholder={'Search for Your Favourite Film'}
+                ></input>
             <ul className={styles.filmList}>
                 {filmList.map(film => 
                 <FilmListItem

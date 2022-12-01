@@ -8,6 +8,7 @@ const FilmPrimaryInfo = ({ filmInfo }) => {
     }
 
     return (
+        <>
         <section className={styles.primaryInfoWrapper}>
             <Image src={`/img/${filmInfo.episode_id}.jpg`} width={250} height={375} alt={`Poster for Star Wars Episode ${filmInfo.episode_id} `} />
             <div className={styles.primaryInfoContent}>
@@ -18,6 +19,8 @@ const FilmPrimaryInfo = ({ filmInfo }) => {
                 <h3>Release Date: {generateNiceDate(filmInfo.release_date)} </h3>
             </div>
         </section>
+        <p>{filmInfo.opening_crawl}</p>
+        </>
     )
 }
 

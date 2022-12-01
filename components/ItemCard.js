@@ -11,7 +11,6 @@ const ItemCard = ({ itemShortInfo, itemType }) => {
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
                 >
-                <div className={styles.itemAvatar}></div>
                 <h4>{itemShortInfo.name}</h4>
             </section>
             { itemType === 'character'

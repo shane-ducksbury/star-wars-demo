@@ -1,12 +1,24 @@
+import Head from "next/head"
 import Link from "next/link"
 import FilmPrimaryInfo from "../../../components/FilmPrimaryInfo"
 import InfoList from "../../../components/InfoList"
+import { RiArrowLeftLine } from 'react-icons/ri'
 
-const Film = ({ filmInfo, characterNames, planetNames, speciesNames, vehicleNames, starshipNames }) => {
+const Film = ({
+    filmInfo,
+    characterNames,
+    planetNames,
+    speciesNames,
+    vehicleNames,
+    starshipNames
+    }) => {
 
     return (
         <main>
-            <Link href='/'>Back</Link>
+            <Head>
+                <title>{`${filmInfo.title} - Star Wars Encyclopedia`}</title>
+            </Head>
+            <Link href='/'>← Back</Link>
             <FilmPrimaryInfo filmInfo={filmInfo} />
             <hr />
             <h3>Characters</h3>
@@ -23,7 +35,6 @@ const Film = ({ filmInfo, characterNames, planetNames, speciesNames, vehicleName
             <hr />
             <h3>Starships</h3>
             <InfoList allItemNames={starshipNames} filmItemUrls={filmInfo.starships} itemType={'starship'} />
-            <p>Opening Crawl: {filmInfo.opening_crawl} </p>
         </main>
     )
 }
@@ -76,7 +87,6 @@ export const getStaticPaths = async () => {
         paths,
         fallback: false
     }
-
 }
 
 export default Film

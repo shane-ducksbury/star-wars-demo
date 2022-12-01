@@ -1,20 +1,17 @@
 .card {
-    display: grid;
-    grid: 2fr 1fr, 100%, auto, auto, auto, auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #1a1a1a;
     width: 7rem;
     height: 9rem;
     margin: 0.4rem 0.6rem;
+    padding: 0.3rem;
     text-align: center;
     border-radius: 6px;
     cursor: pointer;
-    
-    & div{
-        place-self: center;
-    }
 
     & h4 {
-        place-self: center;
         margin: 0;
     }
 }
