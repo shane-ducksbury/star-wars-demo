@@ -35,7 +35,7 @@ const Tooltip = ({ showTooltip, itemInfoUrl }) => {
         if(showTooltip){
             fetchTooltipInfo()
         }
-    },[showTooltip])
+    },[showTooltip, itemInfoUrl])
 
     return (
         <div className={`${styles.tooltip} ${showTooltip ? styles.show : styles.hide}`}>
